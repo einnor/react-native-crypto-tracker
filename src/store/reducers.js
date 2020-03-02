@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-// Import reducers
+import coinReducer from '../containers/Home/store';
 
 const rootReducer = combineReducers({
-  // Register reducers
+  coins: coinReducer,
 });
 
 export default rootReducer;
