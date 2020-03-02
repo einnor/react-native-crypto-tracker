@@ -18,14 +18,13 @@ const styles = StyleSheet.create({
   }
 });
 
-const CryptoContainer = ({ getCoinsRequest, isLoading, error, items }) => {
+const CryptoContainer = ({ getCoinsRequest, isLoading, error, coins }) => {
   useEffect(() => {
     getCoinsRequest();
   }, []);
 
-  renderCoinCards = () => {
-    const { crypto } = this.props;
-    return crypto.data.map((coin) => (
+  const renderCoinCards = () => {
+    return coins.map((coin) => (
       <CoinCard
         key={coin.name}
         coin_name={coin.name}
@@ -37,34 +36,31 @@ const CryptoContainer = ({ getCoinsRequest, isLoading, error, items }) => {
     ));
   };
 
-  render () {
-    const { crypto } = this.props;
-    const { contentContainer, spinner } = styles;
+  const { contentContainer, spinner } = styles;
 
-    if (crypto.isFetching) {
-      return (
-        <View>
-          <Spinner
-            visible={crypto.isFetching}
-            textContent={'Loading...'}
-            textStyle={spinner}
-            animation="fade"
-          />
-        </View>
-      );
-    }
-
+  if (crypto.isFetching) {
     return (
-      <ScrollView contentContainerStyle={contentContainer}>
-        {this.renderCoinCards()}
-      </ScrollView>
+      <View>
+        <Spinner
+          visible={isLoading}
+          textContent={'Loading...'}
+          textStyle={spinner}
+          animation="fade"
+        />
+      </View>
     );
   }
+
+  return (
+    <ScrollView contentContainerStyle={contentContainer}>
+      {renderCoinCards()}
+    </ScrollView>
+  );
 }
 
 const mapStateToProps = (state) => ({
   isLoading: selectors.getIsLoading(state),
-  items: selectors.getItems(state),
+  coins: selectors.getItems(state),
   error: selectors.getError(state),
 });
 
