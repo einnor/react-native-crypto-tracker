@@ -10,10 +10,10 @@ export function getCoinDataRequest() {
   };
 }
 
-export function getCoinDataSuccess(coins) {
+export function getCoinDataSuccess(items) {
   return {
     type: GET_COIN_DATA_SUCESS,
-    payload: { coins }
+    payload: { items }
   };
 }
 

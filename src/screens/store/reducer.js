@@ -5,7 +5,7 @@ import {
 } from './actions';
 
 export const initialState = {
-  coins: [],
+  items: [],
   isLoading: false,
   error: null
 };
@@ -20,7 +20,7 @@ export default function coinReducer(state = initialState, action) {
     case GET_COIN_DATA_SUCESS:
       return {
         ...state,
-        coins: action.payload.coins,
+        items: action.payload.items,
         isLoading: false,
         error: null
       };
