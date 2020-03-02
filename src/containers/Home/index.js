@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   }
 });
 
-const CryptoContainer = ({ getCoinsRequest, isLoading, error, coins }) => {
+const Home = ({ getCoinsRequest, isLoading, error, coins }) => {
   useEffect(() => {
     getCoinsRequest();
   }, []);
@@ -38,7 +38,7 @@ const CryptoContainer = ({ getCoinsRequest, isLoading, error, coins }) => {
 
   const { contentContainer, spinner } = styles;
 
-  if (crypto.isFetching) {
+  if (isLoading) {
     return (
       <View>
         <Spinner
@@ -71,4 +71,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(CryptoContainer);
+)(Home);
