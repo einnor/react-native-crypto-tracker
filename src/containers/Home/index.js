@@ -1,12 +1,14 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux'
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, StyleSheet, ScrollView } from 'react-native';
 import Spinner from 'react-native-loading-spinner-overlay';
 
-import fetchCoinData from '../Actions/FetchCoinData';
-import CoinCard from './CoinCard';
+import { CoinCard } from '../../components';
+import * as selectors from './store/selectors';
+import { getCoinsRequest } from './store/actions';
 
-const styles = {
+
+const styles = StyleSheet.create({
   spinner: {
     color: '#253145'
   },
@@ -14,12 +16,12 @@ const styles = {
     paddingBottom: 100,
     paddingTop: 55,
   }
-};
+});
 
-class CryptoContainer extends Component {
-  componentDidMount () {
-    this.props.fetchCoinData();
-  }
+const CryptoContainer = ({ getCoinsRequest, isLoading, error, items }) => {
+  useEffect(() => {
+    getCoinsRequest();
+  }, []);
 
   renderCoinCards = () => {
     const { crypto } = this.props;
@@ -60,12 +62,14 @@ class CryptoContainer extends Component {
   }
 }
 
-const mapStateToProps = ({ crypto }) => ({
-  crypto,
+const mapStateToProps = (state) => ({
+  isLoading: selectors.getIsLoading(state),
+  items: selectors.getItems(state),
+  error: selectors.getError(state),
 });
 
 const mapDispatchToProps = {
-  fetchCoinData,
+  getCoinsRequest,
 };
 
 export default connect(
