@@ -27,10 +27,10 @@ const styles = StyleSheet.create({
     marginRight: 20,
   },
   separator: {
-    marginBottom: 10,
+    marginTop: 10,
   },
   coinPrice: {
-    marginBottom: 10,
+    marginTop: 10,
     marginLeft: 'auto',
     marginRight: 10,
     fontWeight: 'bold',
@@ -64,7 +64,6 @@ const styles = StyleSheet.create({
 
 const {
   container,
-  image,
   moneySymbol,
   upperRow,
   coinSymbol,
