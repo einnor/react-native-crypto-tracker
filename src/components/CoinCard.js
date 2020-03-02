@@ -76,7 +76,7 @@ const {
   percentagaChangePlus
 } = styles;
 
-const CoinCard = ({ symbol, coin_name, price_usd, percentage_change_24hr, percentage_change_7d }) => {
+const CoinCard = ({ symbol, coin_name, price_usd, percent_change_24h, percent_change_7d }) => {
   return (
     <View style={container}>
       <View style={upperRow}>
@@ -90,11 +90,11 @@ const CoinCard = ({ symbol, coin_name, price_usd, percentage_change_24hr, percen
       <View style={statisticsContainer}>
         <Text>
           24hr:
-          <Text style={percentage_change_24hr < 0 ? percentagaChangeMinus : percentagaChangePlus}> {percentage_change_24hr} %</Text>
+          <Text style={percent_change_24h < 0 ? percentagaChangeMinus : percentagaChangePlus}> {percent_change_24h} %</Text>
         </Text>
         <Text>
           7D:
-          <Text style={percentage_change_7d < 0 ? percentagaChangeMinus : percentagaChangePlus}> {percentage_change_7d} %</Text>
+          <Text style={percent_change_7d < 0 ? percentagaChangeMinus : percentagaChangePlus}> {percent_change_7d} %</Text>
         </Text>
       </View>
     </View>

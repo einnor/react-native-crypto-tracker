@@ -30,8 +30,8 @@ const Home = ({ getCoinsRequest, isLoading, error, coins }) => {
         coin_name={coin.name}
         symbol={coin.symbol}
         price_usd={coin.price_usd}
-        percentage_change_24hr={coin.percentage_change_24hr}
-        percentage_change_7d={coin.percentage_change_7d}
+        percent_change_24h={coin.percent_change_24h}
+        percent_change_7d={coin.percent_change_7d}
       />
     ));
   };
