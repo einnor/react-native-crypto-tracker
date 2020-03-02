@@ -4,7 +4,7 @@ import axios from '../plugins/axios';
 export default class Api {
   static fetchCoins = async () => {
     try {
-      const response = await axios.get('');
+      const response = await axios.get('/v1/ticker/?limit=10');
       return Api.handleResponseData(response);
     } catch (error) {
       return Api.handleResponseData(error.response);
