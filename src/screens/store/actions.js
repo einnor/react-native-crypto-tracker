@@ -1,25 +1,25 @@
 // Action Types
-export const GET_COIN_DATA_REQUEST = 'GET_COIN_DATA_REQUEST';
-export const GET_COIN_DATA_SUCESS = 'GET_COIN_DATA_SUCESS';
-export const GET_COIN_DATA_FAILURE = 'GET_COIN_DATA_FAILURE';
+export const GET_COINS_REQUEST = 'GET_COINS_REQUEST';
+export const GET_COINS_SUCESS = 'GET_COINS_SUCESS';
+export const GET_COINS_FAILURE = 'GET_COINS_FAILURE';
 
 // Actions
-export function getCoinDataRequest() {
+export function getCoinsRequest() {
   return {
-    type: GET_COIN_DATA_REQUEST
+    type: GET_COINS_REQUEST
   };
 }
 
-export function getCoinDataSuccess(items) {
+export function getCoinsSuccess(items) {
   return {
-    type: GET_COIN_DATA_SUCESS,
+    type: GET_COINS_SUCESS,
     payload: { items }
   };
 }
 
-export function getCoinDataFailure(error) {
+export function getCoinsFailure(error) {
   return {
-    type: GET_COIN_DATA_FAILURE,
+    type: GET_COINS_FAILURE,
     payload: { error }
   };
 }
