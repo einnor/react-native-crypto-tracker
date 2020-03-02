@@ -1,8 +1,8 @@
 import { all } from 'redux-saga/effects';
-// Import saga watchers
+import coinsWatcher from '../containers/Home/store/sagas';
 
 export default function* rootSaga() {
   yield all([
-    // Register saga watchers
+    coinsWatcher(),
   ]);
 }
