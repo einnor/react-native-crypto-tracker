@@ -34,5 +34,7 @@ export default function coinReducer(state = initialState, action) {
         hasError: true,
         error: action.payload.error
       };
+    default:
+      return state;
   }
 }
