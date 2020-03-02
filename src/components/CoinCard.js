@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
-import { images } from '../utils/CoinIcons';
+import { images } from '../utils/coinIcons';
 
 const styles = StyleSheet.create({
   container: {
